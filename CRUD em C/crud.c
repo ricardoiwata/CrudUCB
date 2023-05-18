@@ -227,6 +227,61 @@ void fazerRestauracao()
 
     printf("Restauração dos dados concluída.\n");
 }
+int main()
+{
+    srand(time(NULL));
+    char opcao;
+    do
+    {
+        printf("Selecione uma opção:\n");
+        printf("1. Cadastrar usuário\n");
+        printf("2. Editar usuário\n");
+        printf("3. Excluir usuário\n");
+        printf("4. Buscar usuário pelo email\n");
+        printf("5. Imprimir todos os usuários cadastrados\n");
+        printf("6. Fazer backup dos usuários cadastrados\n");
+        printf("7. Fazer restauração dos dados\n");
+        printf("0. Sair\n");
+        printf("Opção: ");
+        scanf(" %c", &opcao);
+
+        getchar();
+
+        switch (opcao)
+        {
+        case '1':
+            cadastrarUsuario();
+            break;
+        case '2':
+            editarUsuario();
+            break;
+        case '3':
+            excluirUsuario();
+            break;
+        case '4':
+            buscarUsuarioPorEmail();
+            break;
+        case '5':
+            imprimirUsuarios();
+            break;
+        case '6':
+            fazerBackup();
+            break;
+        case '7':
+            fazerRestauracao();
+            break;
+        case '0':
+            printf("Encerrando o programa.\n");
+            break;
+        default:
+            printf("Opção inválida. Por favor, tente novamente.\n");
+            break;
+        }
+
+        printf("\n");
+    } while (opcao != '0');
+
+  
   return 0;
 }
 
