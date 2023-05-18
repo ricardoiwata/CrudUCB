@@ -177,6 +177,30 @@ void imprimirUsuarios()
         printf("Vacina: %s\n\n", usuarios[i].vacina ? "Sim" : "Não");
     }
 }
+void fazerBackup()
+{
+    FILE *arquivo = fopen("backup.txt", "w");
+    if (arquivo == NULL)
+    {
+        printf("Erro ao criar o arquivo de backup.\n");
+        return;
+    }
+    int i;
+    for (i = 0; i < totalUsuarios; i++)
+    {
+        fprintf(arquivo, "%d\n", usuarios[i].id);
+        fprintf(arquivo, "%s\n", usuarios[i].nome);
+        fprintf(arquivo, "%s\n", usuarios[i].email);
+        fprintf(arquivo, "%s\n", usuarios[i].sexo);
+        fprintf(arquivo, "%s\n", usuarios[i].endereco);
+        fprintf(arquivo, "%.2f\n", usuarios[i].altura);
+        fprintf(arquivo, "%d\n", usuarios[i].vacina);
+    }
+
+    fclose(arquivo);
+
+    printf("Backup realizado com sucesso.\n");
+}
   return 0;
 }
 
