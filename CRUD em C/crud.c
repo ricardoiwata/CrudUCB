@@ -163,6 +163,20 @@ void buscarUsuarioPorEmail()
 
     printf("Usuário não encontrado.\n");
 }
+void imprimirUsuarios()
+{
+    int i;
+    for (i = 0; i < totalUsuarios; i++)
+    {
+        printf("ID: %d\n", usuarios[i].id);
+        printf("Nome: %s\n", usuarios[i].nome);
+        printf("Email: %s\n", usuarios[i].email);
+        printf("Sexo: %s\n", usuarios[i].sexo);
+        printf("Endereço: %s\n", usuarios[i].endereco);
+        printf("Altura: %.2f\n", usuarios[i].altura);
+        printf("Vacina: %s\n\n", usuarios[i].vacina ? "Sim" : "Não");
+    }
+}
   return 0;
 }
 
