@@ -201,6 +201,32 @@ void fazerBackup()
 
     printf("Backup realizado com sucesso.\n");
 }
+void fazerRestauracao()
+{
+    FILE *arquivo = fopen("backup.txt", "r");
+    if (arquivo == NULL)
+    {
+        printf("Arquivo de backup não encontrado.\n");
+        return;
+    }
+    totalUsuarios = 0;
+    Usuario usuario;
+
+    while (fscanf(arquivo, "%d", &usuario.id) == 1)
+    {
+        fscanf(arquivo, "%s", usuario.nome);
+        fscanf(arquivo, "%s", usuario.email);
+        fscanf(arquivo, "%s", usuario.sexo);
+        fscanf(arquivo, "%s", usuario.endereco);
+        fscanf(arquivo, "%lf", &usuario.altura);
+        fscanf(arquivo, "%d", &usuario.vacina);
+        usuarios[totalUsuarios++] = usuario;
+    }
+
+    fclose(arquivo);
+
+    printf("Restauração dos dados concluída.\n");
+}
   return 0;
 }
 
